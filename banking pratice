@@ -1,0 +1,49 @@
+#include <iostream>
+#include <iomanip>
+void Balance(double balance);
+double Withdraw();
+double Deposit();
+int main() {
+    double balance = 0;
+    int choice;
+    do {
+        std::cout << "**************" << std::endl;
+        std:: cout << "Choose a choice:\n";
+        std:: cout << "1 - Show your balance\n";
+        std:: cout << "2 - Deposit money\n";
+        std:: cout << "3 - Withdraw\n";
+        std:: cout << "4 - Exit\n";
+        std:: cin >> choice;
+        std:: cout << "**************\n";
+        switch(choice){
+            case 1: Balance(balance);
+                    break;
+            case 2: balance += Deposit();
+                    Balance(balance);
+                    break;
+            case 3: balance -= Withdraw();
+                    Balance(balance);
+                    break;
+            case 4: std:: cout <<  "Thanks for visiting \n";
+                    break; 
+            default: std:: cout <<"Invalid choicen\n";
+        }   
+    }while(choice !=4  );
+
+    return 0;
+}
+void Balance (double balance){
+    std:: cout << "Your balance is " << std:: setprecision(2) << std:: fixed << balance << " $" << "\n";
+}
+double Deposit(){
+    double amount;
+    std:: cout << "How many do you deposit: \n";
+    std:: cin >> amount;
+    return amount;
+}
+double Withdraw(){
+        double amount;
+    std:: cout << "How many do you withdraw: \n";
+    std:: cin >> amount;
+    return amount;
+}
